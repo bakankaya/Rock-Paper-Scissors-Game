@@ -1,0 +1,89 @@
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color:#b96b78;
+    text-align: center;
+    color: #5e5e5e;
+}
+h1 {
+    text-shadow: 2px 2px wheat;
+}
+.gamesect{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin: 0;
+
+}
+
+.selection, .results {
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+    gap: 5vw;
+    padding: 5vw;
+    margin: 0;
+}
+.selections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    max-width: 100%;
+    padding: 4px;
+    border:2px solid wheat;
+    border-radius: 4px;
+}
+img {
+    border:2px solid wheat;
+    border-radius: 4px;
+    max-width: 100%;
+}
+button {
+    background-color: #8070ac;
+    font-family: inherit;
+    color: wheat;
+    padding: 10px;
+    width: 140px;
+    margin-top: 8px;
+}
+.selections:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 1rem #ffc600;
+    
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: smaller;
+}
+
+/* Responsive */
+@media (max-width:750px){
+    .gamesect{font-size: 10px;}
+    .selection{gap: 1vw;}
+    button{width: fit-content;}
+    img {max-width: 100px;}
+}
+
+/* Animation tries */
+.pick {
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+}
+
+
+@keyframes bounce {
+    0%  {transform:translateY(0) scale(1,1);}
+    14% {transform:translateY(10px) scale(1.1,.9);}
+    28% {transform:translateY(0) scale(1,1);}
+    42% {transform:translateY(10px) scale(1.1,.9);}
+    56% {transform:translateY(0) scale(1,1);}
+    70% {transform:translateY(10px) scale(1.1,.9);}
+    84% {transform:translateY(-6) scale(1,1);}
+    100%{transform:translateY(14px) scale(1.1,.9);}
+}
