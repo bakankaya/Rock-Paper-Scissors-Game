@@ -9,30 +9,55 @@ h1 {
     text-shadow: 2px 2px wheat;
 }
 .gamesect{
-    display: flex;
+    display: grid;
+    max-width: 50%;
     flex-direction: column;
     align-items: center;
-    max-width: 100%;
-    margin: 0;
-
+    margin: auto;
+    row-gap: 1vh;
 }
 
-.selection, .results {
+.results{
     display: flex;
-    border: 1px solid black;
+    border: 5px ridge #5e5e5e;
+    justify-content: space-between;
+    gap: 5vw;
+    padding: 2vh 5vw;
+}
+#prompt{
+    width: 175px;
+    height:104px; 
+    text-align:center;
+    font-size: larger;
+    line-height: 1.5em;
+    padding-top: 2vh;
+}
+#scorepy, #scorepc {
+    border:3px solid #8070ac;
+    padding: 1vh 3vw;
+    background-color: wheat;
+    color: #8070ac;
+    font-size: larger;
+    margin-bottom: 5px;
+}
+.que {
+    box-shadow: rgba(0, 0, 0, 0.45) 4px 10px 4px;
+    margin-top: 5px;
+}
+.selection {
+    display: flex;
+    border: 5px ridge #5e5e5e;
     justify-content: space-between;
     gap: 5vw;
     padding: 5vw;
-    margin: 0;
 }
 .selections {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
     max-width: 100%;
     padding: 4px;
-    border:2px solid wheat;
+    border:3px solid wheat;
     border-radius: 4px;
 }
 img {
@@ -40,6 +65,8 @@ img {
     border-radius: 4px;
     max-width: 100%;
 }
+
+
 button {
     background-color: #8070ac;
     font-family: inherit;
@@ -62,7 +89,8 @@ footer{
 
 /* Responsive */
 @media (max-width:750px){
-    .gamesect{font-size: 10px;}
+    .gamesect{display:flex;font-size: 10px;}
+    #prompt{width: 135px;}
     .selection{gap: 1vw;}
     button{width: fit-content;}
     img {max-width: 100px;}
@@ -73,17 +101,17 @@ footer{
     animation-name: bounce;
     animation-duration: 2s;
     animation-iteration-count: 1;
-    animation-timing-function: ease;
+    /* animation-timing-function: step-start; */
 }
 
 
 @keyframes bounce {
-    0%  {transform:translateY(0) scale(1,1);}
-    14% {transform:translateY(10px) scale(1.1,.9);}
-    28% {transform:translateY(0) scale(1,1);}
-    42% {transform:translateY(10px) scale(1.1,.9);}
-    56% {transform:translateY(0) scale(1,1);}
+    0%  {transform:translateY(0px) scale(1,1);}
+    10% {transform:translateY(10px) scale(1.1,.9);}
+    30% {transform:translateY(0px) scale(1,1);}
+    40% {transform:translateY(10px) scale(1.1,.9);}
+    60% {transform:translateY(0px) scale(1,1);}
     70% {transform:translateY(10px) scale(1.1,.9);}
-    84% {transform:translateY(-6) scale(1,1);}
-    100%{transform:translateY(14px) scale(1.1,.9);}
+    94% {transform:translateY(-10px) scale(1,1);}
+    100%{transform:translateY(10px) scale(1.1,.9);}
 }

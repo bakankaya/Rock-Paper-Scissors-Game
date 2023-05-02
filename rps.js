@@ -36,12 +36,12 @@ function zort2(){
 }
 
 // Adding Event Listener
-const buttons = document.querySelectorAll('.btn');
+const buttons = document.querySelectorAll('.selections');
 // we use the .forEach method to iterate through each button
 buttons.forEach((button) => {
   // and for each one we add a 'click' listener, choosing from player and calling the game
   button.addEventListener('click', () => {  //!!!Probably I need another eventlistener to get the timing right!!!
-    playerchoice = button.textContent;
+    playerchoice = button.id;
     if (playerchoice == 'ROCK'){
         document.getElementById('plyrque').src="sources/icons8-rock-100.png";
         zort();
