@@ -1,124 +1,103 @@
-/* ROCK PAPER SCISSORS Game
-Trying the odin project guide
-*/
+// Variables
+
+let compscore = 0;
+let playerscore = 0;
+let buttons = document.querySelectorAll('.selections');
+let win = document.querySelector("[data-claimer-win");
+let lose = document.querySelector("[data-claimer-lose");
+let overlay = document.querySelector("[data-overlay");
 
 // A function that randomly chooses within options
 
 function getComputerChoice(){
     let choices = ["ROCK", "PAPER", "SCISSORS"];
     let compchoice = choices[(Math.floor(Math.random() * choices.length))];
-    return compchoice;
-}
-
-// Getting Input from user (Removed from function also!)
-/*
-function getPlayerChoice(){
-    let playerchoice = prompt("ROCK, PAPER or SCISSORS?" ).toLowerCase();
-    if (playerchoice == "ROCK"||playerchoice == "PAPER" ||playerchoice == "SCISSORS"){
-        return playerchoice;
-    } else {
-    return "I didn't understand that, try again";
+    if (compchoice == 'ROCK'){
+        document.getElementById('compque').src="sources/icons8-rock-100.png";
+    } else if (compchoice == 'PAPER'){
+        document.getElementById('compque').src="sources/icons8-paper-100.png";
+    } else if (compchoice == 'SCISSORS'){
+        document.getElementById('compque').src="sources/icons8-barber-scissors-100.png";
     }
-}
-*/
-function zort(){
+    return compchoice;
+}  
+    
+// The function to keep score
+
+function counter(){
+    document.getElementById('scorepy').textContent = playerscore;
+    document.getElementById('scorepc').textContent = compscore;
+    if (playerscore == 5){
+        win.classList.add('open');
+        overlay.classList.add('open');
+    } else if (compscore == 5) {
+        lose.classList.add('open');
+        overlay.classList.add('open');
+    }
+};
+
+
+function animation(){
+    document.getElementById('compque').src ="sources/icons8-question-mark-64.png";
+    document.getElementById('prompt').textContent ="???";
+    document.getElementById('prompt').style.color= "#4b4b4b";
     const qe = document.querySelectorAll('img.que');
     for( const q of qe){
         q.classList.add('pick');
-        setTimeout(zort2,2000);
-    }
-}
-function zort2(){
-    const qe = document.querySelectorAll('img.que');
-    for( const q of qe){
-        q.classList.remove('pick');
+        q.onanimationend = () =>{
+            q.classList.remove('pick');
+        };
     }
 }
 
-// Adding Event Listener
-const buttons = document.querySelectorAll('.selections');
-// we use the .forEach method to iterate through each button
-buttons.forEach((button) => {
-  // and for each one we add a 'click' listener, choosing from player and calling the game
-  button.addEventListener('click', () => {  //!!!Probably I need another eventlistener to get the timing right!!!
-    playerchoice = button.id;
-    if (playerchoice == 'ROCK'){
-        document.getElementById('plyrque').src="sources/icons8-rock-100.png";
-        zort();
-    } else if (playerchoice == 'PAPER'){
-        document.getElementById('plyrque').src="sources/icons8-paper-100.png";
-        zort();
-    } else if (playerchoice == 'SCISSORS'){
-        document.getElementById('plyrque').src="sources/icons8-barber-scissors-100.png";
-        zort();
-    }
-    document.getElementById('scorepy').textContent = playerscore;
-    document.getElementById('scorepc').textContent = compscore;
-    document.getElementById('prompt').textContent = playRound();
-    counter();
-  });
-});
-
-let compscore = 0;
-let playerscore = 0;
-
-// Comparing computer and user and deciding on winner
 function playRound(){
-
     var compchoice = getComputerChoice();
     if (playerchoice == compchoice){
-        return "It's a tie!";
+        document.getElementById('prompt').textContent= "It's a tie!";
     } else if (playerchoice=="ROCK" && compchoice=="PAPER"){
         compscore++;
-        return "PAPER beats ROCK!";
-    } else if (playerchoice=="ROCK"& compchoice=="SCISSORS"){
+        document.getElementById('prompt').textContent= "PAPER beats ROCK!";
+        document.getElementById('prompt').style.color= "#800";
+    } else if (playerchoice=="ROCK" && compchoice=="SCISSORS"){
         playerscore++;
-        return "ROCK beats SCISSORS!";
+        document.getElementById('prompt').textContent= "ROCK beats SCISSORS!";
+        document.getElementById('prompt').style.color= "#0c8081";
 
-    } else if (playerchoice=="PAPER"& compchoice=="SCISSORS"){
+    } else if (playerchoice=="PAPER" && compchoice=="SCISSORS"){
         compscore++;
-        return "SCISSORS beats PAPER!";
-    } else if (playerchoice=="PAPER"& compchoice=="ROCK"){
+        document.getElementById('prompt').textContent= "SCISSORS beats PAPER!";
+        document.getElementById('prompt').style.color= "#800";
+    } else if (playerchoice=="PAPER" && compchoice=="ROCK"){
         playerscore++;
-        return "PAPER beats ROCK!";
+        document.getElementById('prompt').textContent= "PAPER beats ROCK!";
+        document.getElementById('prompt').style.color= "#0c8081";
         
-    } else if (playerchoice=="SCISSORS"& compchoice=="PAPER"){
+    } else if (playerchoice=="SCISSORS" && compchoice=="PAPER"){
         playerscore++;
-        return "SCISSORS beats PAPER!";  
-    } else if (playerchoice=="SCISSORS"& compchoice=="ROCK"){
+        document.getElementById('prompt').textContent= "SCISSORS beats PAPER!";
+        document.getElementById('prompt').style.color= "#0c8081";  
+    } else if (playerchoice=="SCISSORS" && compchoice=="ROCK"){
         compscore++;
-        return "ROCK beats SCISSORS!";
+        document.getElementById('prompt').textContent= "ROCK beats SCISSORS!";
+        document.getElementById('prompt').style.color= "#800";
     }
 }
-// run it five times
-/*
-function game(){
-    let compscore;
-    let playerscore;
-    for (let i = 0; i < 5; i++) {
-        let result = playRound()
-        if (result.search('lose!') > -1){
-            compscore++;
-        } else if (result.search('win!') > -1) {
-            playerscore++;
-        }
-     }
-   if (playerscore > compscore){
-    return 'you Win!';
-}   else {
-    return 'you Lost!';
-}
-}
-*/
 
-function counter(){
-    if (playerscore == 5){
-    alert('You Win!');
-    playerscore = 0;
-    compscore = 0;
-}   else if (compscore == 5) {
-    alert('You Lost!');
-    playerscore = 0;
-    compscore = 0;
-}
-};
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {  
+      playerchoice = button.id;
+      if (playerchoice == 'ROCK'){
+          document.getElementById('plyrque').src="sources/icons8-rock-100.png";
+          animation();
+      } else if (playerchoice == 'PAPER'){
+          document.getElementById('plyrque').src="sources/icons8-paper-100.png";
+          animation();
+      } else if (playerchoice == 'SCISSORS'){
+          document.getElementById('plyrque').src="sources/icons8-barber-scissors-100.png";
+          animation();
+      }
+
+    setTimeout(playRound,1500);
+    setTimeout(counter,2000);
+    });
+});

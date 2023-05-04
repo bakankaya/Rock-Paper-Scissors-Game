@@ -3,7 +3,7 @@ body {
     font-family: 'Press Start 2P', cursive;
     background-color:#b96b78;
     text-align: center;
-    color: #5e5e5e;
+    color: #4b4b4b;
 }
 h1 {
     text-shadow: 2px 2px wheat;
@@ -36,7 +36,7 @@ h1 {
     border:3px solid #8070ac;
     padding: 1vh 3vw;
     background-color: wheat;
-    color: #8070ac;
+    color: #5e5e5e;
     font-size: larger;
     margin-bottom: 5px;
 }
@@ -59,14 +59,13 @@ h1 {
     padding: 4px;
     border:3px solid wheat;
     border-radius: 4px;
+    background-color: #bf7884; /*just a little lighter of background*/
 }
 img {
     border:2px solid wheat;
     border-radius: 4px;
     max-width: 100%;
 }
-
-
 button {
     background-color: #8070ac;
     font-family: inherit;
@@ -96,15 +95,13 @@ footer{
     img {max-width: 100px;}
 }
 
-/* Animation tries */
+/* Animations */
 .pick {
     animation-name: bounce;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-iteration-count: 1;
     /* animation-timing-function: step-start; */
 }
-
-
 @keyframes bounce {
     0%  {transform:translateY(0px) scale(1,1);}
     10% {transform:translateY(10px) scale(1.1,.9);}
@@ -112,6 +109,43 @@ footer{
     40% {transform:translateY(10px) scale(1.1,.9);}
     60% {transform:translateY(0px) scale(1,1);}
     70% {transform:translateY(10px) scale(1.1,.9);}
-    94% {transform:translateY(-10px) scale(1,1);}
+    94% {transform:translateY(-12px) scale(1,1);}
     100%{transform:translateY(10px) scale(1.1,.9);}
+}
+
+.overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2;
+}
+.claimer-win{
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 3em;
+    z-index: 3;
+    background: #109010;
+    border: 8px ridge #5e5e5e;
+    font-size: large;
+    color: wheat;
+}
+.claimer-lose{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 3em;
+    z-index: 3;
+    background: #901036;
+    border: 8px ridge #5e5e5e;
+    font-size: large;
+    color: wheat;
+}
+.open {
+    display: block;
 }

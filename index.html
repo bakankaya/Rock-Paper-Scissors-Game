@@ -19,7 +19,7 @@
     <div class="gamesect">
         <div class="results">
             <div class="result">
-                <p><span id="scorepy">0</span></p>
+                <p id="scorepy">0</p>
                 <img src="sources/icons8-question-mark-64.png" id="plyrque" alt="question_mark" class="que" style="width:100px">
                 <p style="margin-top: 3vh;">PLAYER</p>
             </div>
@@ -28,7 +28,7 @@
                 <p id="prompt">Results</p>
             </div>
             <div class="result">
-                <p><span id="scorepc">0</span></p>
+                <p id="scorepc">0</p>
                 <img src="sources/icons8-question-mark-64.png" id="compque" alt="question_mark" class="que" style="width:100px">
                 <p style="margin-top: 3vh;">COMPUTER</p>
             </div>
@@ -47,6 +47,15 @@
                 <button id="SCISSORS" class="btn">SCISSORS</button>
             </div>
         </div>
+    </div>
+    <div data-overlay class="overlay"></div>
+    <div data-claimer-win class="claimer-win">
+        <p style="padding-bottom: 50px;">You Win!</p>
+        <button onclick="window.location.reload();">Play Again?</button>
+    </div>
+    <div data-claimer-lose class="claimer-lose">
+        <p style="padding-bottom: 50px;">You Lost!</p>
+        <button onclick="window.location.reload();">Play Again?</button>
     </div>
     <script src="rps.js"></script>
     <footer>
