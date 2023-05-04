@@ -121,7 +121,7 @@ footer{
     z-index: 2;
 }
 .claimer-win{
-    display: block;
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
