@@ -15,6 +15,7 @@ h1 {
     align-items: center;
     margin: auto;
     row-gap: 1vh;
+    background-color: #b96b78;
 }
 
 .results{
@@ -80,18 +81,23 @@ button {
     
 }
 footer{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     font-size: smaller;
+    z-index: -1;
 }
 
 /* Responsive */
+@media(max-width:1200px){
+    .gamesect{ display: flex;}
+}
 @media (max-width:750px){
     h1{font-size: 22px;}
     .gamesect{display:flex;
         font-size: 10px;
-        width: 90%;}
+        width: 90%;
+        margin: auto}
     #prompt{width: 135px;}
     .results{gap:2vw;
         padding: 3vw;
